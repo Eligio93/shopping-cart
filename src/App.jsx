@@ -2,14 +2,14 @@ import Header from "./components/Header";
 import {useLocation, Outlet,Link} from "react-router-dom";
 import "./index.css";
 
-function App() {
+function App({cart}) {
   //Check if the page we are at is the home
   const isActive=useLocation().pathname==="/";
   //https://fakeapi.platzi.com/
 
   return (
     <>
-      <Header />
+      <Header cart={cart}/>
       {isActive?
       <>
       <div className="home">

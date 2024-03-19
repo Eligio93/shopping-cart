@@ -1,7 +1,7 @@
 import {NavLink} from "react-router-dom"
 
 
-function Header() {
+function Header({cart}) {
   return (
     
     <div className="header">
@@ -14,9 +14,7 @@ function Header() {
 
     </ul>
     <div className="social-bar">
-        <p>ciao
-            
-        </p>
+        <button onClick={()=>console.log(cart)}>Cart</button>
     </div>
     </div>
    

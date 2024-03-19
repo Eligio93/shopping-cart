@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ItemCard from "./components/ItemCard";
 
-function Products() {
+function Products({addToCart}) {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +10,7 @@ function Products() {
     const getData = async () => {
       try {
         let response = await fetch(
-          "https://fakestoreapi.com/products/category/electronics"
+          "https://fakestoreapi.com/products/"
         );
         if (!response.ok) {
           throw new Error("Error in fetching data");
@@ -37,7 +37,7 @@ function Products() {
         <div className="products">
           {data.map((product) => (
             <div className="product-card" key={product.id}>
-              <ItemCard product={product} />
+              <ItemCard product={product} addToCart={addToCart} />
             </div>
           ))}
         </div>
