@@ -2,12 +2,12 @@ import { useEffect, useState } from "react";
 import ItemCard from "./components/ItemCard";
 
 function Products({addToCart}) {
-  const [data, setData] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [products, setProducts] = useState(null);
+  const [loadingProducts, setLoadingProducts] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    const getData = async () => {
+    const getProducts = async () => {
       try {
         let response = await fetch(
           "https://fakestoreapi.com/products/"
@@ -16,26 +16,27 @@ function Products({addToCart}) {
           throw new Error("Error in fetching data");
         }
         let result = await response.json();
-        setData(result);
+        setProducts(result);
+        console.log(products)
       } catch (error) {
         setError(error);
-        setData(null);
+        setProducts(null);
       } finally {
-        setLoading(false);
+        setLoadingProducts(false);
       }
     };
 
-    getData();
-    console.log(data);
+    getProducts();   
   }, []);
 
+  
   return (
     <>
-      {loading ? (
+      {loadingProducts ? (
         <h1>Loading..</h1>
       ) : (
         <div className="products">
-          {data.map((product) => (
+          {products.map((product) => (
             <div className="product-card" key={product.id}>
               <ItemCard product={product} addToCart={addToCart} />
             </div>
