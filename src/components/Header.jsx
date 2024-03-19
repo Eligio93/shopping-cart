@@ -1,6 +1,7 @@
 import { NavLink } from "react-router-dom";
 
 function Header({ cart, categories}) {
+
   return (
     <div className="header">
       <h1>Ec Fake Store</h1>
@@ -14,10 +15,11 @@ function Header({ cart, categories}) {
         </li>
         <li className="dropdown">
           <div className="categoriesBtn">Categories</div>
-          <div class="dropdown-links">
-          {categories.map((category)=>
-           <NavLink to={"category/"+category}>{category}</NavLink> 
+          <div className="dropdown-links">
+            {categories && categories.map((category)=>
+           <NavLink key={category} to={"category/"+category}>{category}</NavLink> 
           )}
+          
           </div>
         </li>
         <li>
