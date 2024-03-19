@@ -2,7 +2,7 @@ import { useState } from "react";
 function ItemCard({ product, addToCart }) {
   const[quantity,setQuantity]=useState(0);
   const changeQuantity=(event)=>{
-    setQuantity(event.target.value);
+    setQuantity(parseInt(event.target.value));
   }
   return (
     <>
