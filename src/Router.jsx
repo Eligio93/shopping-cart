@@ -6,8 +6,9 @@ import { useState } from "react";
 
 const Router = () => {
   const[cart,setCart]=useState([])
-  function addToCart(name){
-    setCart([...cart,name]);
+  function addToCart(product,quantity){
+    let totPrice=product.price * quantity
+    setCart([...cart,{title:product.title, quantity:quantity, totPrice:totPrice, img:product.image }]);
 
   }
   const router = createBrowserRouter([
