@@ -1,4 +1,9 @@
+import { useState } from "react";
 function ItemCard({ product, addToCart }) {
+  const[quantity,setQuantity]=useState(0);
+  const changeQuantity=(event)=>{
+    setQuantity(event.target.value);
+  }
   return (
     <>
       <div className="product-img">
@@ -7,9 +12,9 @@ function ItemCard({ product, addToCart }) {
       <p className="product-title">{product.title}</p>
 
       <p className="product-price">{"$" + product.price}</p>
-      <input type="number" min="0" max="20" />
+      <input type="number" min="0" max="20" value={quantity} onChange={changeQuantity}/>
       {/*al click sara da prendere il valore in input e aggiornare lo state del carrello*/}
-      <button onClick={() => addToCart(product.title)}>Add to Cart</button>
+      <button onClick={() => addToCart(product, quantity)}>Add to Cart</button>
     </>
   );
 }
