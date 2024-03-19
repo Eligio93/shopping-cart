@@ -3,10 +3,8 @@ import App from "./App";
 import Products from "./Products";
 import About from "./About";
 import { useEffect, useState } from "react";
-import Categories from "./Categories";
 
 const Router = () => {
-  
   const [cart, setCart] = useState([]);
   //add to cart function
   function addToCart(product, quantity) {
@@ -44,10 +42,6 @@ const Router = () => {
         {
           path: "products",
           element: <Products addToCart={addToCart} />,
-        },
-        {
-          path: "categories",
-          element: <Categories />,
         },
         {
           path: "About",
