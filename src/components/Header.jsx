@@ -1,3 +1,4 @@
+import cartIcon from "../assets/img/cart-icon.svg"
 import { NavLink } from "react-router-dom";
 
 function Header({ cart, categories}) {
@@ -27,7 +28,13 @@ function Header({ cart, categories}) {
         </li>
       </ul>
       <div className="social-bar">
-        <button onClick={() => console.log(cart)}>Cart</button>
+        {/*al click del button si aprira il div laterale*/}
+        <button onClick={() => console.log(cart)}>
+          <img className="cartIcon"src={cartIcon} alt="" />
+          {cart.length>0 && <p className="cart-quantity">{cart.length}</p>}
+         
+          
+        </button>
       </div>
     </div>
   );
