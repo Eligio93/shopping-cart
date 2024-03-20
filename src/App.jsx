@@ -28,7 +28,6 @@ function App({cart}) {
         setCategories(null);
       } finally {
         setLoadingCategories(false);
-       console.log(categories)
       }
     };
 
