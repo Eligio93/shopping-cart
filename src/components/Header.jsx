@@ -17,7 +17,7 @@ function Header({ cart, categories}) {
           <div className="categoriesBtn">Categories</div>
           <div className="dropdown-links">
             {categories && categories.map((category)=>
-           <NavLink key={category} to={"category/"+category}>{category}</NavLink> 
+           <NavLink key={category} to={"categories/"+category}>{category}</NavLink> 
           )}
           
           </div>
