@@ -44,6 +44,10 @@ const Router = () => {
           element: <Products addToCart={addToCart} />,
         },
         {
+          path:"categories/:category",
+          element:<Products addToCart={addToCart}/>
+        },
+        {
           path: "About",
           element: <About />,
         },
