@@ -26,6 +26,7 @@ const Router = () => {
       setCart([
         ...cart,
         {
+          id:product.id,
           title: product.title,
           quantity: quantity,
           totPrice: totPrice,
