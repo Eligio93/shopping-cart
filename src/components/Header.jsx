@@ -1,9 +1,15 @@
 import cartIcon from "../assets/img/cart-icon.svg";
-import { useState } from "react";
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink,useLocation} from "react-router-dom";
+import Cart from "./Cart";
+
 
 function Header({ cart, categories }) {
   const[cartSideBar,setCartSideBar]=useState(false);
+  let location= useLocation();
+  useEffect(()=>{
+    setCartSideBar(false)
+  },[location])
   function handleCartSideBar(){
     setCartSideBar(!cartSideBar)
   }
@@ -35,12 +41,15 @@ function Header({ cart, categories }) {
       </ul>
       <div className="social-bar">
         {/*al click del button si aprira il div laterale*/}
-        <button onClick={handleCartSideBar}>
+        <button onClick={()=>{handleCartSideBar();console.log(cart)}}>
           <img className="cartIcon" src={cartIcon} alt="" />
           {cart.length > 0 && <p className="cart-quantity">{cart.length}</p>}
         </button>
       </div>
-      { cartSideBar &&  <div className="cart-sidebar"></div>}
+      { cartSideBar &&  <div className="cart-sidebar">
+        {cart.length == 0 ? <p>Aggiungi elementi</p> : <Cart cart={cart} />}
+        
+        </div>}
      
     </div>
   );
