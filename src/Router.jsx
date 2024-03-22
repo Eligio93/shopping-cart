@@ -8,7 +8,7 @@ const Router = () => {
   const [cart, setCart] = useState([]);
   //add to cart function
   function addToCart(product, quantity) {
-    let totPrice = product.price * quantity;
+    let totPrice = parseFloat((product.price * quantity).toFixed(2));
     //get the index to check if the element is already in cart
     let existingItemIndex = cart.findIndex(
       (item) => item.title == product.title
@@ -35,6 +35,8 @@ const Router = () => {
       ]);
     }
   }
+
+  
 
   function removeFromCart(cart, id) {
     setCart(cart.filter((item) => id !== item.id));
