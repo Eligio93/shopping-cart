@@ -26,7 +26,7 @@ const Router = () => {
       setCart([
         ...cart,
         {
-          id:product.id,
+          id: product.id,
           title: product.title,
           quantity: quantity,
           totPrice: totPrice,
@@ -35,18 +35,22 @@ const Router = () => {
       ]);
     }
   }
+
+  function removeFromCart(cart, id) {
+    setCart(cart.filter((item) => id !== item.id));
+  }
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App cart={cart} />,
+      element: <App cart={cart} removeFromCart={removeFromCart} />,
       children: [
         {
           path: "products",
           element: <Products addToCart={addToCart} />,
         },
         {
-          path:"categories/:category",
-          element:<Products addToCart={addToCart}/>
+          path: "categories/:category",
+          element: <Products addToCart={addToCart} />,
         },
         {
           path: "About",
