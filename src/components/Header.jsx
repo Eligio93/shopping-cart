@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import Cart from "./Cart";
 
-function Header({ cart, categories, removeFromCart }) {
+function Header({ cart, categories, removeFromCart, changeQuantity}) {
   const [cartSideBar, setCartSideBar] = useState(false);
   let location = useLocation();
   useEffect(() => {
@@ -56,7 +56,7 @@ function Header({ cart, categories, removeFromCart }) {
           {cart.length == 0 ? (
             <p>Aggiungi elementi</p>
           ) : (
-            <Cart cart={cart} removeFromCart={removeFromCart} />
+            <Cart cart={cart} removeFromCart={removeFromCart} changeQuantity={changeQuantity}/>
           )}
         </div>
       )}
