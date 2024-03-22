@@ -1,4 +1,4 @@
-function Cart({cart,removeFromCart}){
+function Cart({cart,removeFromCart,changeQuantity}){
 
     return(
         <>
@@ -14,7 +14,7 @@ function Cart({cart,removeFromCart}){
         </div>
        
         </div>
-        <input type="number" value={item.quantity} min="1"/>
+        <input type="number" defaultValue={item.quantity} min="1" onChange={(event)=>changeQuantity(cart,item.id,event,item.price)} />
         <button onClick={()=>removeFromCart(cart,item.id)}>Remove</button>
        </div>
 
