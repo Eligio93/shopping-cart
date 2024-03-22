@@ -17,8 +17,8 @@ const Router = () => {
     if (existingItemIndex !== -1) {
       //update array
       let updatedCart = [...cart];
-      updatedCart[existingItemIndex].quantity += quantity;
-      updatedCart[existingItemIndex].totPrice += totPrice;
+      updatedCart[existingItemIndex].quantity = quantity;
+      updatedCart[existingItemIndex].totPrice = totPrice;
       //set new Cart
       setCart(updatedCart);
     } else {
@@ -29,6 +29,7 @@ const Router = () => {
           id: product.id,
           title: product.title,
           quantity: quantity,
+          price: product.price,
           totPrice: totPrice,
           img: product.image,
         },
@@ -41,10 +42,19 @@ const Router = () => {
   function removeFromCart(cart, id) {
     setCart(cart.filter((item) => id !== item.id));
   }
+
+  function changeQuantity(cart,id,event,itemPrice){
+    
+      let newQuantity=parseInt(event.target.value);
+      let updatedCart= cart.map((item)=>item.id == id ? {...item,quantity:newQuantity, totPrice:newQuantity*itemPrice}: item);
+      setCart(updatedCart)
+      console.log(cart)
+      
+  }
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <App cart={cart} removeFromCart={removeFromCart} />,
+      element: <App cart={cart} removeFromCart={removeFromCart} changeQuantity={changeQuantity} />,
       children: [
         {
           path: "products",
