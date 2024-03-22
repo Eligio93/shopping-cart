@@ -5,11 +5,16 @@ function Cart({cart,removeFromCart}){
        <div className="cart">
             {cart.map((item)=>
        <div className="cart-item" key={item.id}>
-        <div className="cart-item-description">
+        <div className="cart-item-info">
         <img src={item.img} alt="" />
-        <p>{item.title}</p>
+        <div className="cart-item-description">
+        <p><b>{item.title}</b></p>
+        <i>Total: $ {item.totPrice}</i>
+           
         </div>
-        <input type="number" value={item.quantity} min="1" onChange={()=>console.log("ciao")} />
+       
+        </div>
+        <input type="number" value={item.quantity} min="1"/>
         <button onClick={()=>removeFromCart(cart,item.id)}>Remove</button>
        </div>
 
