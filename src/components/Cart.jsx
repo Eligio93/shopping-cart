@@ -1,7 +1,9 @@
 function Cart({ cart, removeFromCart, changeQuantity }) {
   return (
     <>
-      <div className="cart">
+    {cart.length == 0 ? (<p>Aggiungi Elementi</p>) : (
+        <>
+        <div className="cart">
         {cart.map((item) => (
           <div className="cart-item" key={item.id}>
             <div className="cart-item-info">
@@ -10,9 +12,11 @@ function Cart({ cart, removeFromCart, changeQuantity }) {
                 <p>
                   <b>{item.title}</b>
                 </p>
-                <i>Total: $ {item.totPrice}</i>
+               
               </div>
+              
             </div>
+            <i>Total: $ {(item.totPrice).toFixed(2)}</i>
             <input
               type="number"
               value={item.quantity}
@@ -28,7 +32,15 @@ function Cart({ cart, removeFromCart, changeQuantity }) {
           </div>
         ))}
       </div>
+      <div className="checkout-info">
+        <p>Subtotal: $ {cart.reduce((acc,item)=>{
+            return acc += item.totPrice
+        },0).toFixed(2)}</p>
       <button className="checkOut">Checkout</button>
+      </div>
+     
+        </>
+    )}
     </>
   );
 }
