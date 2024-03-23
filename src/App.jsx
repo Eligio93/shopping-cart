@@ -3,7 +3,7 @@ import { useLocation, Outlet, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./index.css";
 
-function App({ cart, removeFromCart ,changeQuantity }) {
+function App({ cart, removeFromCart, changeQuantity }) {
   //Check if the page we are at is the home
   const isActive = useLocation().pathname === "/";
   //https://fakeapi.platzi.com/
