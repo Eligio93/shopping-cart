@@ -74,6 +74,3 @@ const Router = () => {
   return <RouterProvider router={router} />;
 };
 export default Router;
-
-
-//check if changes are made on github
