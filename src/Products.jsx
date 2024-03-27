@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ItemCard from "./components/ItemCard";
 import { useParams } from "react-router-dom";
+import loadingAnimation from "../src/assets/img/loadingAnimation.svg"
 
 function Products({ addToCart }) {
   const [products, setProducts] = useState(null);
@@ -39,7 +40,10 @@ function Products({ addToCart }) {
   return (
     <>
       {loadingProducts ? (
-        <h1>Loading..</h1>
+        <div className="loader">
+           <img src={loadingAnimation} alt="loading-animation" />
+        </div>
+       
       ) : (
         <div className="products">
           {products.map((product) => (
