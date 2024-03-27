@@ -40,6 +40,7 @@ body {
 }
 
 .header h1 {
+  font-size: 2em;
   flex: 1;
 }
 
@@ -203,6 +204,7 @@ cursor:pointer;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color:white;
 }
 
 .home h1 {
@@ -233,7 +235,14 @@ cursor:pointer;
 }
 
 .home button {
-  margin-top: 20px;
+  margin-top: 50px;
+  padding:10px;
+  font-size: 1.5em;
+  background-color:rgb(11, 17, 43);
+  color:white;
+  border-radius: 10px;
+  border:1px solid white;
+
 }
 
 .products {
@@ -279,6 +288,8 @@ cursor:pointer;
   font-weight: bold;
   font-size:large;
   margin-bottom:10px;
+  padding-bottom:10px;
+  border-bottom:1px solid black
 }
 .product-card input{
   width:50%;
@@ -304,7 +315,13 @@ img {
   height: 70%;
   width: auto;
 }
-
+.empty-cart p{
+  text-align: center;
+  font-size: 2em;
+}
+.empty-cart img{
+  width:100%;
+}
 /*media queries*/
 @media (max-width:600px){
   .ham-menu{
@@ -329,7 +346,7 @@ img {
     border-radius:0 10px 10px 0;
     height:calc(100vh - 100px);
     overflow-y: auto;
-    width:40%;
+    width:50%;
     padding:20px;
     color:white;
     background-color: rgb(42, 52, 97);
@@ -350,7 +367,7 @@ img {
   }
   .header h1{
     text-align: center;
-    font-size: 2em;
+    font-size: 1.5em;
   }
   .social-bar{
     flex:1;
@@ -362,6 +379,17 @@ img {
   .cart-sidebar{
     width:70%;
     padding:20px;
+  }
+  .home h1 {
+    font-size: 3em;
+  }
+  
+  .home p {
+    font-size: 1.5em;
+    width:80%;
+  }
+  .dropdown-links{
+    background-color:rgba(28, 32, 44,1);
   }
 
 }
