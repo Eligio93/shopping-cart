@@ -42,7 +42,7 @@ function App({ cart, removeFromCart, changeQuantity }) {
         removeFromCart={removeFromCart}
         changeQuantity={changeQuantity}
       />
-      {isActive ? (
+      {isActive && !loadingCategories ? (
         <>
           <div className="home">
             <p>Welcome to</p>
