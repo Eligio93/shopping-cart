@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import { useLocation, Outlet, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import "./index.css";
+import loadingAnimation from "../src/assets/img/loadingAnimation.svg"
 
 function App({ cart, removeFromCart, changeQuantity }) {
   //Check if the page we are at is the home
@@ -42,24 +43,22 @@ function App({ cart, removeFromCart, changeQuantity }) {
         removeFromCart={removeFromCart}
         changeQuantity={changeQuantity}
       />
-      {isActive && !loadingCategories ? (
-        <>
-          <div className="home">
-            <p>Welcome to</p>
-            <h1>EC Fake Store</h1>
-            <p>
-              Elevate your tech game with our cutting-edge electronics emporium.
-              From smartphones to laptops, find all you need for a tech-savvy
-              lifestyle. Shop now for unbeatable deals and top-notch service!
-            </p>
-            <Link to="products">
-              <button>Shop Now</button>
-            </Link>
-          </div>
-        </>
-      ) : (
-        <Outlet />
-      )}
+      {loadingCategories ? <div className="loader">
+        <img src={loadingAnimation} alt="loading-animation" />
+      </div> : isActive ? <>
+        <div className="home">
+          <p>Welcome to</p>
+          <h1>EC Fake Store</h1>
+          <p>
+            Elevate your tech game with our cutting-edge electronics emporium.
+            From smartphones to laptops, find all you need for a tech-savvy
+            lifestyle. Shop now for unbeatable deals and top-notch service!
+          </p>
+          <Link to="products">
+            <button>Shop Now</button>
+          </Link>
+        </div>
+      </> : <Outlet />}
     </>
   );
 }
