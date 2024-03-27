@@ -1,8 +1,14 @@
+import emptyCartIcon from "../assets/img/emptyCartIcon.svg"
+
+
 function Cart({ cart, removeFromCart, changeQuantity }) {
   return (
     <>
       {cart.length == 0 ? (
-        <p>Aggiungi Elementi</p>
+        <div className="empty-cart">
+          <p>Your cart is empty</p>
+          <img src={emptyCartIcon} alt="" />
+        </div>
       ) : (
         <>
           <div className="cart">
