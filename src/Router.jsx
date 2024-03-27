@@ -37,19 +37,19 @@ const Router = () => {
     }
   }
 
-  
+
 
   function removeFromCart(cart, id) {
     setCart(cart.filter((item) => id !== item.id));
   }
 
-  function changeQuantity(cart,id,event,itemPrice){
-    
-      let newQuantity=parseInt(event.target.value);
-      let updatedCart= cart.map((item)=>item.id == id ? {...item,quantity:newQuantity, totPrice:newQuantity*itemPrice}: item);
-      setCart(updatedCart)
-      console.log(cart)
-      
+  function changeQuantity(cart, id, event, itemPrice) {
+
+    let newQuantity = parseInt(event.target.value);
+    let updatedCart = cart.map((item) => item.id == id ? { ...item, quantity: newQuantity, totPrice: newQuantity * itemPrice } : item);
+    setCart(updatedCart)
+    console.log(cart)
+
   }
   const router = createBrowserRouter([
     {
@@ -74,6 +74,3 @@ const Router = () => {
   return <RouterProvider router={router} />;
 };
 export default Router;
-
-
-// changing for committ

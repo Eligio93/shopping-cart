@@ -41,9 +41,9 @@ function Products({ addToCart }) {
     <>
       {loadingProducts ? (
         <div className="loader">
-           <img src={loadingAnimation} alt="loading-animation" />
+          <img src={loadingAnimation} alt="loading-animation" />
         </div>
-       
+
       ) : (
         <div className="products">
           {products.map((product) => (
