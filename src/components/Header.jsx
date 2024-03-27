@@ -10,6 +10,7 @@ function Header({ cart, categories, removeFromCart, changeQuantity }) {
   let location = useLocation();
   useEffect(() => {
     setCartSideBar(false);
+    setHamburgerMenu(false);
   }, [location]);
   function handleCartSideBar() {
     setCartSideBar(!cartSideBar);
