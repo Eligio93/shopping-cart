@@ -50,9 +50,9 @@ function App({ cart, removeFromCart, changeQuantity }) {
           <p>Welcome to</p>
           <h1>EC Fake Store</h1>
           <p>
-            Elevate your tech game with our cutting-edge electronics emporium.
-            From smartphones to laptops, find all you need for a tech-savvy
-            lifestyle. Shop now for unbeatable deals and top-notch service!
+            Experience the ultimate online shopping destination! Explore our curated selection of fashion,
+            jewelry, and electronics. Elevate your style and tech game with unbeatable deals and top-notch service.
+            Shop now for everything you need to live your best life!
           </p>
           <Link to="products">
             <button>Shop Now</button>
