@@ -12,6 +12,8 @@ I encountered the most difficulty with using the router, particularly in figurin
 
 I really enjoyed watching this project evolve into something that can finally be considered a real-world project. I've gained a lot more proficiency with React and its functionalities, and I believe I've done a good job with responsiveness, which I had never implemented before.
 
+In the project, I still need to implement the input validation part, thus not allowing the user to enter quantities less than 1 for each selected product.
+
 ## Live Preview
 
-[Live Preview Here]()
+[Live Preview Here](https://ec-shoppingcart.netlify.app/)
