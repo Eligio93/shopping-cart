@@ -1,5 +1,9 @@
 import { useState } from "react";
+
+
+
 function ItemCard({ product, addToCart }) {
+  //preset the default value of the item on card to 1
   const [quantity, setQuantity] = useState(1);
   const changeQuantity = (event) => {
     setQuantity(parseInt(event.target.value));
@@ -19,7 +23,7 @@ function ItemCard({ product, addToCart }) {
         value={quantity}
         onChange={changeQuantity}
       />
-      {/*al click sara da prendere il valore in input e aggiornare lo state del carrello*/}
+      {/*when the button get clicked the item get added to the cart*/}
       <button onClick={() => addToCart(product, quantity)}>Add to Cart</button>
     </>
   );

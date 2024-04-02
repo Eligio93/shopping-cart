@@ -12,6 +12,8 @@ function App({ cart, removeFromCart, changeQuantity }) {
   const [loadingCategories, setLoadingCategories] = useState(true);
   const [error, setError] = useState(null);
 
+
+  /*get the categories to display in the header dropdown menu*/
   useEffect(() => {
     const getCategories = async function () {
       try {

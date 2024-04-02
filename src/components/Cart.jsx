@@ -4,6 +4,7 @@ import emptyCartIcon from "../assets/img/emptyCartIcon.svg"
 function Cart({ cart, removeFromCart, changeQuantity }) {
   return (
     <>
+    {/*if the cart is empty display this*/}
       {cart.length == 0 ? (
         <div className="empty-cart">
           <p>Your cart is empty</p>
@@ -11,6 +12,7 @@ function Cart({ cart, removeFromCart, changeQuantity }) {
         </div>
       ) : (
         <>
+        {/*else display the full cart*/}
           <div className="cart">
             {cart.map((item) => (
               <div className="cart-item" key={item.id}>

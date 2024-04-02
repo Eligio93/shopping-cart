@@ -38,19 +38,18 @@ const Router = () => {
   }
 
 
-
+  /*remove item from the cart*/
   function removeFromCart(cart, id) {
     setCart(cart.filter((item) => id !== item.id));
   }
-
+  /*manage the change quantity in the cart*/
   function changeQuantity(cart, id, event, itemPrice) {
-
     let newQuantity = parseInt(event.target.value);
+    /*check the item in the cart where we need to modify the quantity*/
     let updatedCart = cart.map((item) => item.id == id ? { ...item, quantity: newQuantity, totPrice: newQuantity * itemPrice } : item);
     setCart(updatedCart)
-    console.log(cart)
-
   }
+  /*Application Router */
   const router = createBrowserRouter([
     {
       path: "/",

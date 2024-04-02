@@ -8,13 +8,18 @@ function Header({ cart, categories, removeFromCart, changeQuantity }) {
   const [cartSideBar, setCartSideBar] = useState(false);
   const [hamburgerMenu, setHamburgerMenu] = useState(false)
   let location = useLocation();
+  //if we change page the menu on mobile or the cart sidebar close
   useEffect(() => {
     setCartSideBar(false);
     setHamburgerMenu(false);
   }, [location]);
+
+  //display the cart sidebar where the cart will be displayed
   function handleCartSideBar() {
     setCartSideBar(!cartSideBar);
   }
+
+  //display the menu on mobile
   function handleHamburgerMenu() {
     setHamburgerMenu(!hamburgerMenu)
   }
@@ -50,7 +55,6 @@ function Header({ cart, categories, removeFromCart, changeQuantity }) {
         </li>
       </ul>
       <div className="cart-bar">
-        {/*al click del button si aprira il div laterale*/}
         <button
           onClick={() => {
             handleCartSideBar();
@@ -69,6 +73,8 @@ function Header({ cart, categories, removeFromCart, changeQuantity }) {
           />
         </div>
       )}
+
+      {/*if we are on mobile and so the hambuerger menu is true*/}
       {hamburgerMenu && (
         <div className="menu">
           <ul className="navigation-mobile">

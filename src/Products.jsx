@@ -8,14 +8,16 @@ function Products({ addToCart }) {
   const [loadingProducts, setLoadingProducts] = useState(true);
   const [error, setError] = useState(null);
   const { category } = useParams();
-
+  /*retrive products from FAke Store*/
   useEffect(() => {
     const getProducts = async () => {
       let response;
       try {
+        /*if category is not specified in the url get all products*/
         if (category == undefined) {
           response = await fetch(`https://fakestoreapi.com/products`);
         } else {
+          /*else get products of the category selected*/
           response = await fetch(
             `https://fakestoreapi.com/products/category/${category}`
           );
@@ -35,6 +37,7 @@ function Products({ addToCart }) {
     };
 
     getProducts();
+    /*when the category changes, display products of the new category*/
   }, [category]);
 
   return (
